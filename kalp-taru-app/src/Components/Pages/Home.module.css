@@ -1,0 +1,66 @@
+.container{
+    width: 100%;
+    height: 90vh;
+    border: 1px solid black;
+   left: 0;
+   top: 0;
+   animation: animate 16s ease-in-out infinite;
+   background-size: cover;
+}
+
+@keyframes animate{
+    0%,100%{
+        background-image: url(https://m.media-amazon.com/images/I/91lQ01zCsjL._SX3000_.jpg);
+    }
+    25%{
+        background-image: url(https://m.media-amazon.com/images/I/81Fq8Grs6SL._SX3000_.jpg);
+    }
+    50%{
+        background-image: url(https://m.media-amazon.com/images/I/81OCE7mUqhL._SX3000_.jpg);
+    }
+    75%{
+        background-image: url(https://m.media-amazon.com/images/I/81rPAv-SglL._SX3000_.jpg);
+    }
+}
+
+.outer{
+    width: 100%;
+    height: 100%;
+}
+
+.blank{
+    width: 100%;
+    height: 40%;
+   
+}
+.details{
+    width: 100%;
+    height: 60%;
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+/* small screen */
+@media all and (min-width:320px) and (max-width:642px){
+    .container{
+        margin-top: -50px;
+    }
+}
+
+
+
+
+
+
+
+
+/* midium screen-768 */
+
+@media all and (min-width:641px) and (max-width:1024px){
+ 
+}

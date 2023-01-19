@@ -1,14 +1,16 @@
 import React from 'react'
 import styles from "./NavBar.module.css"
-import {TriangleDownIcon} from '@chakra-ui/icons'
+import {TriangleDownIcon,HamburgerIcon} from '@chakra-ui/icons'
 import DrawerComponent from './DrawerComponent';
 import AddressModal from './AddressModal';
 import InputBox from './InputBox';
 import {Menu,MenuButton,MenuList,MenuItem,Portal,Center} from '@chakra-ui/react'
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
+import { Radio, RadioGroup,Stack } from '@chakra-ui/react'
 
 
 const NavBar = () => {
+  const [value, setValue] = React.useState('1')
 const links=[
   {to:"/", title:"Home"},
   {to:"/bestsellers", title:"Best Sellers"},
@@ -27,11 +29,12 @@ const links=[
     <div className={styles.container} >
       <div className={styles.childOne}>
 
+        
         <div className={styles.logoStyles}>
-          <img style={{width:"100%",height:"100%"}} src='./kalpTaru.png' alt='' />
+        <Link to="/" > <img style={{width:"100%",height:"100%"}} src='./kalp.png' alt='' /></Link>
         </div>
 
-        <div className={styles.logoStyles} >
+        <div className={styles.selectYourAddress} >
             <AddressModal/>
         </div>
         <InputBox />
@@ -41,19 +44,40 @@ const links=[
             <MenuButton>EN <TriangleDownIcon/></MenuButton>
                 <Portal>
                     <MenuList>
-                        <MenuItem>Menu 1</MenuItem>
-                        <MenuItem>New Window</MenuItem>
-                        <MenuItem>Open Closed Tab</MenuItem>
-                        <MenuItem>Open File</MenuItem>
+                    <RadioGroup onChange={setValue} value={value}>
+                    <Stack direction='column' padding="15px"  >
+                      <Radio value='1'>Engligh-EN</Radio>
+                      <hr/>
+                      <Radio value='2'>Hindi-HI</Radio>
+                      <Radio value='3'>Marathi-MA</Radio>
+                      <Radio value='4'>Tamil-TA</Radio>
+                      <Radio value='5'>Telgu-TE</Radio>
+                      <Radio value='6'>Kannad-KA</Radio>
+                      <Radio value='8'>Malyalam-ML</Radio>
+                      <Radio value='9'>Panjabi-PN</Radio>
+                    </Stack>
+                    </RadioGroup>
                     </MenuList>
                 </Portal>
         </Menu>
         </Center>
 
-        <div className={styles.EN} style={{width:"10%",height:"80%"}} ><p>Sign In</p><h6>Account & List</h6></div>
+        <div className={styles.EN} style={{width:"10%",height:"80%"}} ><Link to="/login" ><p>Sign In</p><h6>Account & List</h6></Link></div>
         <div className={styles.EN} style={{width:"5%",height:"80%"}} ><p>Returns<br/>&Order</p></div>
         <div className={styles.cart} ><Center><p>Cart</p></Center></div>
-        
+
+        <div className={styles.menuBar} >
+          <Center>
+          <Menu>
+            <MenuButton>Menu</MenuButton>
+                <Portal>
+                    <MenuList>
+                    {links.map((el)=><MenuItem><Link key={el.to} to={el.to} >{el.title}</Link></MenuItem>)}
+                    </MenuList>
+                </Portal>
+          </Menu>
+          </Center>
+        </div>
       </div>
 
       <div className={styles.childTwo} > 

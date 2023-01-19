@@ -6,6 +6,7 @@ import Electronics from '../Pages/Electronics'
 import Fashion from '../Pages/Fashion'
 import Home from '../Pages/Home'
 import HomeAndKitchen from '../Pages/HomeAndKitchen'
+import Login from '../Pages/Login'
 import Mobiles from '../Pages/Mobiles'
 import PageNotFound from '../Pages/PageNotFound'
 import Pay from '../Pages/Pay'
@@ -26,6 +27,7 @@ const AllRoutes = () => {
         <Route path="/prime" element={<Prime/>} />
         <Route path="/fashion" element={<Fashion/>} />
         <Route path="/pay" element={<Pay/>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/homeandkitchen" element={<HomeAndKitchen/>} />
         <Route path="*" element={<PageNotFound/>} />
       </Routes>

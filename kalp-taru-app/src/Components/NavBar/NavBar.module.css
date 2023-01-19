@@ -1,6 +1,7 @@
 .container{
     height: 110px;
     text-align: center;
+    position: relative;
 }
 .childOne{
     border: 1px solid black;
@@ -11,6 +12,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: sticky;
 }
 .childTwo{
     height: 50px;
@@ -32,6 +34,7 @@
 .EN{
     width:5%;
     height:80%; 
+  
 }
 
 .EN:hover{
@@ -95,9 +98,29 @@
     border: 1px solid yellow;
     cursor: pointer;
 }
-
-
-
+.menuBar{
+    display: none;
+}
+.menuBar:hover{
+    border: 1px solid yellow;
+    cursor: pointer;
+}
+.selectYourAddress{
+    width: 10%;
+    height: 80%; 
+}
+.selectYourAddress:hover{
+    border: 1px solid yellow;
+    cursor: pointer;
+}
+.addressModal{
+    width: 80%;
+    height: 30px;
+    background-color: #febd69;
+    border-radius: 5px;
+    text-align: center;
+    margin: auto;
+}
 
 
 
@@ -114,7 +137,7 @@
     }
     
     .inputParentDiv{
-        width:40%;
+        width:50%;
         height:60%;
         display:flex;
         justify-content:center;
@@ -160,6 +183,16 @@
     }
     .cart{
         display: none;
+    }
+    .menuBar{
+        display: block;
+    }
+    .logoStyles{
+        width: 20%;
+        height: 40%;  
+    }
+    .selectYourAddress{
+       display: none;
     }
 }
 
