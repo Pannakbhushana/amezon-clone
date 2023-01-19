@@ -36,7 +36,7 @@ const links=[
         </div>
         <InputBox />
 
-        <Center className={styles.EN} style={{width:"5%",height:"80%"}} >
+        <Center className={styles.EN} >
         <Menu>
             <MenuButton>EN <TriangleDownIcon/></MenuButton>
                 <Portal>
@@ -52,7 +52,7 @@ const links=[
 
         <div className={styles.EN} style={{width:"10%",height:"80%"}} ><p>Sign In</p><h6>Account & List</h6></div>
         <div className={styles.EN} style={{width:"5%",height:"80%"}} ><p>Returns<br/>&Order</p></div>
-        <Center className={styles.EN} style={{width:"5%",height:"80%"}} ><p>Cart</p></Center>
+        <div className={styles.cart} ><Center><p>Cart</p></Center></div>
         
       </div>
 
