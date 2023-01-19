@@ -5,25 +5,9 @@ import styles from "./NavBar.module.css";
 
 const InputBox = () => {
   return (
-    <div style={{
-        width:"50%",
-        height:"70%", 
-        display:"flex",
-        justifyContent:"center",
-        alignItems:"center",
-        textAlign:"center",
-        borderRadius:"5%",
-        }} >
+    <div className={styles.inputParentDiv} >
         
-        <Center  style={{
-            width:"10%",
-            height:"100%", 
-            // border:"1px solid #f3f3f3",
-            background:"#f3f3f3",
-            color:"black",
-            borderTopLeftRadius:"3px",
-            borderBottomLeftRadius:"3px",
-            }} >
+        <Center className={styles.inputAllMenu}  >
         <Menu>
             <MenuButton> All <TriangleDownIcon/></MenuButton>
                 <Portal>
@@ -41,14 +25,8 @@ const InputBox = () => {
               <input  className={styles.inputBoxStyle} placeholder='What are you looking for' />
         </div>
 
-        <div  style={{width:"10%",height:"100%"}} >
-            <button style={{
-                width:"100%",
-                height:"100%",
-                background:"#febd69",
-                borderTopRightRadius:"3px",
-                borderBottomRightRadius:"3px"
-                }}><SearchIcon/></button></div>
+        <div className={styles.searchButtonParentDiv} >
+            <button className={styles.searchButton} ><SearchIcon/></button></div>
 
       </div>
   )
