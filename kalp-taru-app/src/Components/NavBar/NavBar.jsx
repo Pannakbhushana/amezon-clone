@@ -64,7 +64,7 @@ const links=[
 
         <div className={styles.EN} style={{width:"10%",height:"80%"}} ><Link to="/login" ><p>Sign In</p><h6>Account & List</h6></Link></div>
         <div className={styles.EN} style={{width:"5%",height:"80%"}} ><p>Returns<br/>&Order</p></div>
-        <div className={styles.cart} ><Center><p>Cart</p></Center></div>
+        <div className={styles.cart} ><Center><Link to="/cart" ><p>Cart</p></Link></Center></div>
 
         <div className={styles.menuBar} >
           <Center>
@@ -83,9 +83,9 @@ const links=[
       <div className={styles.childTwo} > 
 
             <DrawerComponent/>
-            {links.map((el)=><NavLink className={({isActive})=>{
+            {links.map((el,i)=><NavLink key={i} className={({isActive})=>{
               return isActive ? styles.activeStyle : styles.defaultStyle
-            }} key={el.to} to={el.to} >{el.title}</NavLink>)}
+            }} to={el.to} >{el.title}</NavLink>)}
         
       </div>
     </div>
