@@ -1,228 +1,159 @@
 import React from 'react'
-import {
-  Flex,
-  Circle,
-  Box,
-  Image,
-  Badge,
-  useColorModeValue,
-  Icon,
-  chakra,
-  Tooltip,
-} from '@chakra-ui/react';
-// import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
-// import { FiShoppingCart } from 'react-icons/fi';
+import { Card,CardBody, CardFooter, Stack,Heading,Text,Divider,ButtonGroup,Button } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
+import {Image,} from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
-const data = {
-  isNew: true,
-  imageURL:
-    'https://m.media-amazon.com/images/I/51j75VTMVbL._UX679_.jpg',
-  name: 'Wayfarer Classic',
-  price: 4.5,
-  rating: 4.2,
-  numReviews: 34,
-};
+const FashiionData=[
+  {
+    id:"50z3",
+    name:"Lymio Dresses for Women Regular Multi Color Square Neck Half Sleeve Polyester",
+    img:"https://m.media-amazon.com/images/I/61XdzIyV6hL._UY741_.jpg",
+    price:569
+  },
+  {
+    id:"51z2",
+    name:"Lymio Dresses for Women || Western Dresses for Women",
+    img:"https://m.media-amazon.com/images/I/7178zfQwb5L._UY741_.jpg",
+    price:399
+  },
+  {
+    id:"55zert",
+    name:"Ben Martin Men's Slim Fit Denim Jeans",
+    img:"https://m.media-amazon.com/images/I/613ybn1m+EL._UY879_.jpg",
+    price:699
+  },
+  {
+    id:"52zcda",
+    name:"SIGHTBOMB High Turtle Neck Fullsleeve Ribbed Tops for Women",
+    img:"https://m.media-amazon.com/images/I/61LFJ3ynPpL._UY741_.jpg",
+    price:399
+  },
+  {
+    id:"53zcs",
+    name:"J B Fashion Tops for Women | Tops for Women Tops for Women Stylish | top for Girls ",
+    img:"https://m.media-amazon.com/images/I/81Qelj0EE2L._UY741_.jpg",
+    price:379
+  },
+  {
+    id:"54zytr",
+    name:"Ben Martin Men's Relaxed Jeans",
+    img:"https://m.media-amazon.com/images/I/616xchp1ECL._UY741_.jpg",
+    price:698
+  },
+  {
+    id:"50zrty",
+    name:"Lymio Dresses for Women Regular Multi Color Square Neck Half Sleeve Polyester",
+    img:"https://m.media-amazon.com/images/I/61XdzIyV6hL._UY741_.jpg",
+    price:569
+  },
+  {
+    id:"51zyt",
+    name:"Lymio Dresses for Women || Western Dresses for Women",
+    img:"https://m.media-amazon.com/images/I/7178zfQwb5L._UY741_.jpg",
+    price:399
+  },
+  {
+    id:"55zt",
+    name:"Ben Martin Men's Slim Fit Denim Jeans",
+    img:"https://m.media-amazon.com/images/I/613ybn1m+EL._UY879_.jpg",
+    price:699
+  },
+  {
+    id:"52ze",
+    name:"SIGHTBOMB High Turtle Neck Fullsleeve Ribbed Tops for Women",
+    img:"https://m.media-amazon.com/images/I/61LFJ3ynPpL._UY741_.jpg",
+    price:399
+  },
+  {
+    id:"53za",
+    name:"J B Fashion Tops for Women | Tops for Women Tops for Women Stylish | top for Girls ",
+    img:"https://m.media-amazon.com/images/I/81Qelj0EE2L._UY741_.jpg",
+    price:379
+  },
+ 
+]
 
 
 
 function Fashion() {
-  return (
-    <Flex p={50} w="full" alignItems="center" justifyContent="space-around">
-      <Box
-        bg={useColorModeValue('white', 'gray.800')}
-        maxW="sm"
-        borderWidth="1px"
-        rounded="lg"
-        shadow="lg"
-        position="relative">
-        {data.isNew && (
-          <Circle
-            size="10px"
-            position="absolute"
-            top={2}
-            right={2}
-            bg="red.200"
-          />
-        )}
 
-        <Image
-          src={data.imageURL}
-          alt={`Picture of ${data.name}`}
-          roundedTop="lg"
-        />
+  const handleClick=(el)=>{
+    const res=JSON.parse(localStorage.getItem("cart"));
+    res.push(el);
+    localStorage.setItem("cart",JSON.stringify(res));
+  }
 
-        <Box p="6">
-          <Box d="flex" alignItems="baseline">
-            {data.isNew && (
-              <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-                New
-              </Badge>
-            )}
-          </Box>
-          <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Box
-              fontSize="2xl"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated>
-              {data.name}
-            </Box>
-            <Tooltip
-              label="Add to cart"
-              bg="white"
-              placement={'top'}
-              color={'gray.800'}
-              fontSize={'1.2em'}>
-              <chakra.a href={'#'} display={'flex'}>
+  return <div>
+  <div style={{height:"50px"}} ></div>
+ 
+<Grid templateColumns={{base:'repeat(1,1fr)',
+              base:'repeat(1,1fr)',
+              sm:'repeat(1,1fr)',
+              md:'repeat(2,1fr)',
+              lg:'repeat(4,1fr)'
+              }} 
+              gap={20}
               
-              </chakra.a>
-            </Tooltip>
-          </Flex>
+              >
+               
+{FashiionData.map((el)=>
+  
+      <GridItem key={el.id} style={{margin:"auto"}}  >
+            <Card maxW='sm'>
+            <CardBody>
+                <Link to={`/fashion/${el.id}`} >
+                <Image
+                  style={{width:"100%",height:"200px"}}
+                  src={el.img}
+                  alt='Green double couch with wooden legs'
+                  borderRadius='lg'
+                  />
+                </Link>
+            <Stack mt='6' spacing='3'>
+            <Heading size='md'>{el.brand}</Heading>
+            <Text>
+          {el.name}
+                </Text>
+                <Text color='blue.600' fontSize='2xl'>
+                Rs. {el.price}
+                </Text>
+              </Stack>
+              </CardBody>
+              <Divider />
+              <CardFooter>
+              <ButtonGroup spacing='2'>
+                <Button variant='solid' colorScheme='blue'
+                onClick={()=>{
+                  alert("Order placed successfully")
+                }}
+                >
+                  Buy now
+                </Button>
+                <Button variant='ghost' colorScheme='blue' onClick={()=>{
+                  handleClick(el)
+                }} >
+                  Add to cart
+                </Button>
+              </ButtonGroup>
+              </CardFooter>
+                  </Card>
+                  </GridItem>
+                )}
+                              
+                </Grid>
 
-          <Flex justifyContent="space-between" alignContent="center">
-        
-            <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-              <Box as="span" color={'gray.600'} fontSize="lg">
-                £
-              </Box>
-              {data.price.toFixed(2)}
-            </Box>
-          </Flex>
-        </Box>
-      </Box>
+                <div style={{marginTop:"3%"}} >
+                <Button>Prev</Button>
+                <Button disabled >1/1</Button>
+                <Button>Next</Button>
+                </div>
 
-      <Box
-        bg={useColorModeValue('white', 'gray.800')}
-        maxW="sm"
-        borderWidth="1px"
-        rounded="lg"
-        shadow="lg"
-        position="relative">
-        {data.isNew && (
-          <Circle
-            size="10px"
-            position="absolute"
-            top={2}
-            right={2}
-            bg="red.200"
-          />
-        )}
 
-        <Image
-          src={data.imageURL}
-          alt={`Picture of ${data.name}`}
-          roundedTop="lg"
-        />
+                <div style={{height:"100px"}} ></div>
 
-        <Box p="6">
-          <Box d="flex" alignItems="baseline">
-            {data.isNew && (
-              <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-                New
-              </Badge>
-            )}
-          </Box>
-          <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Box
-              fontSize="2xl"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated>
-              {data.name}
-            </Box>
-            <Tooltip
-              label="Add to cart"
-              bg="white"
-              placement={'top'}
-              color={'gray.800'}
-              fontSize={'1.2em'}>
-              <chakra.a href={'#'} display={'flex'}>
-              
-              </chakra.a>
-            </Tooltip>
-          </Flex>
-
-          <Flex justifyContent="space-between" alignContent="center">
-        
-            <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-              <Box as="span" color={'gray.600'} fontSize="lg">
-                £
-              </Box>
-              {data.price.toFixed(2)}
-            </Box>
-          </Flex>
-        </Box>
-      </Box>
-
-      <Box
-        bg={useColorModeValue('white', 'gray.800')}
-        maxW="sm"
-        borderWidth="1px"
-        rounded="lg"
-        shadow="lg"
-        position="relative">
-        {data.isNew && (
-          <Circle
-            size="10px"
-            position="absolute"
-            top={2}
-            right={2}
-            bg="red.200"
-          />
-        )}
-
-        <Image
-          src={data.imageURL}
-          alt={`Picture of ${data.name}`}
-          roundedTop="lg"
-        />
-
-        <Box p="6">
-          <Box d="flex" alignItems="baseline">
-            {data.isNew && (
-              <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-                New
-              </Badge>
-            )}
-          </Box>
-          <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Box
-              fontSize="2xl"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated>
-              {data.name}
-            </Box>
-            <Tooltip
-              label="Add to cart"
-              bg="white"
-              placement={'top'}
-              color={'gray.800'}
-              fontSize={'1.2em'}>
-              <chakra.a href={'#'} display={'flex'}>
-              
-              </chakra.a>
-            </Tooltip>
-          </Flex>
-
-          <Flex justifyContent="space-between" alignContent="center">
-        
-            <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-              <Box as="span" color={'gray.600'} fontSize="lg">
-                £
-              </Box>
-              {data.price.toFixed(2)}
-            </Box>
-          </Flex>
-        </Box>
-      </Box>
-
-     
-    </Flex>
-  );
+        </div>
 }
+
 
 export default Fashion;

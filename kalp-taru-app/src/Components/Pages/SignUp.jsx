@@ -1,4 +1,7 @@
 import React from 'react'
+import { useContext } from 'react';
+import { AuthContext } from '../Context/AuthContext';
+import { Navigate } from 'react-router-dom';
 
 import {
   Flex,
@@ -14,15 +17,42 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
+ 
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
-export default function Login() {
+export default function SignUp() {
+  const initState={
+    firstName:"",
+    lastName:"",
+    email:"",
+    password:""
+  }
   const [showPassword, setShowPassword] = useState(false);
+  const [text, setText]=useState(initState);
+  const {Login}=useContext(AuthContext)
 
-  return (
+  const handleSubmit=()=>{
+
+   const loginArr=JSON.parse(localStorage.getItem("loginData"))||[];
+   loginArr.push(text);
+   localStorage.setItem("loginData",JSON.stringify(loginArr));
+   Login()
+   setText(initState);
+   alert(`hello ${text.firstName}... SignUp successfull `)
+  
+  }
+
+  const handleChange=(e)=>{
+    const {name, value}=e.target;
+    setText({...text,[name]:value})
+  }
+
+
+  return  (
     <Flex
       minH={'100vh'}
       align={'center'}
@@ -47,24 +77,48 @@ export default function Login() {
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+
+                  <Input type="text"
+                  name="firstName"
+                  value={text.firstName}
+                  onChange={handleChange}
+                  />
+
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName">
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+
+                  <Input type="text"
+                  name="lastName"
+                  value={text.lastName}
+                  onChange={handleChange}
+                  />
+
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+
+              <Input type="email"
+              name="email"
+              value={text.email}
+              onChange={handleChange}
+              />
+
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
+
+                <Input type={showPassword ? 'text' : 'password'}
+                name="password"
+                value={text.password}
+                onChange={handleChange}
+                />
+
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -77,7 +131,9 @@ export default function Login() {
               </InputGroup>
             </FormControl>
             <Stack spacing={10} pt={2}>
+
               <Button
+              onClick={handleSubmit}
                 loadingText="Submitting"
                 size="lg"
                 bg={'blue.400'}
@@ -87,10 +143,13 @@ export default function Login() {
                 }}>
                 Sign up
               </Button>
+
             </Stack>
             <Stack pt={6}>
+       
               <Text align={'center'}>
-                Already a user? <Link color={'blue.400'}>Login</Link>
+               
+                Already a user? <Link style={{color:"blue"}}  to="/userlogin" >Login</Link>
               </Text>
             </Stack>
           </Stack>

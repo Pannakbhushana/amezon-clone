@@ -247,6 +247,12 @@ const BestSellers = () => {
     setData(products)
   },[page])
 
+  const handleClick=(el)=>{
+    let cartData=JSON.parse(localStorage.getItem("cart"));
+    cartData.push(el);
+    localStorage.setItem("cart",JSON.stringify(cartData));
+  }
+
   // const getData=async()=>{
   //  try {
   //   const responce=await fetch(`http://localhost:3000/products`)
@@ -281,14 +287,24 @@ const BestSellers = () => {
                   }} 
                   gap={6}>
                      
-                      {data.map((el)=> <Link key={el.id} to={`/bestsellers/${el.id}`} >
-                        <GridItem  className={styles.card} >
-                        <img src={el.img} alt={el.title} style={{width:"100%",height:"70%"}} />
+                      {data.map((el)=> 
+                        <GridItem  className={styles.card} key={el.id} >
+
+                       <Link to={`/bestsellers/${el.id}`} > 
+                       <img src={el.img} alt={el.title} style={{width:"100%",height:"70%"}} />
+                       </Link>
+
                         <h2 style={{fontWeight:"bold"}} >{el.title}</h2>
                         <p> Price : Rs.{el.price}</p>
-                        <button style={{background:"tomato",padding:"3px",borderRadius:"5px",color:"white"}} >Add To Cart</button>
+                        <button  
+                        onClick={()=>handleClick(el)}
+                        style={{
+                          background:"tomato",
+                          padding:"3px",
+                          borderRadius:"5px",
+                          color:"white"}} >Add To Cart</button>
                       </GridItem>
-                      </Link>)}         
+                      )}         
           </Grid>
 
         <div className={styles.btnParent} >

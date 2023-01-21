@@ -93,6 +93,7 @@
 .cart{
     width:5%;
     height:80%;
+   
 }
 .cart:hover{
     border: 1px solid yellow;

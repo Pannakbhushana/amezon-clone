@@ -266,25 +266,16 @@ import {
     },[])
 
     const updateData=()=>{
-      console.log(params.id)
+      
       let newData=products.filter((el)=>el.id==params.id)
       setData(newData[0])
-      
-     
     }
-    
-    // const getDataAndUpdate=async(id)=>{
-    //     setLoading(true)
-    //     try {
-    //       const responce=await fetch(`http://localhost:3000/products/${id}`)
-    //     const res=await responce.json();
-    //     setLoading(false)
-    //     setData(res)
-    //     } catch (error) {
-    //       console.log(error)
-    //       setLoading(false)
-    //     }
-    //   }
+
+    const handleClick=(data)=>{
+      let arr= JSON.parse(localStorage.getItem("cart")) || [];
+      arr.push(data);
+      localStorage.setItem("cart",JSON.stringify(arr));
+    }
     
     return (
       <Container maxW={'7xl'}>
@@ -426,6 +417,9 @@ import {
             </Stack>
   
             <Button
+            onClick={()=>{
+              handleClick (data)
+            }}
               rounded={'none'}
               w={'full'}
               mt={8}

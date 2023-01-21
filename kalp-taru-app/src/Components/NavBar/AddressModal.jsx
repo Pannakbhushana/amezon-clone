@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalBody,ModalCloseButton,useDisclosure,Button,Center} from '@chakra-ui/react';
 import styles from "./NavBar.module.css";
+import { Link } from 'react-router-dom';
 
 const AddressModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -20,7 +20,7 @@ const AddressModal = () => {
                     <hr/>
                     <p>Select a delivery location to see product availability and delivery options</p>
                     <br/>
-                    <div className={styles.addressModal} ><Link to="/login" >Sign In to see your address</Link></div>
+                    <div className={styles.addressModal} ><Link to="/userlogin" >Sign In to see your address</Link></div>
                     <br/>
                     
                     <hr/>

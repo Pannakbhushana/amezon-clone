@@ -47,11 +47,11 @@ const DrawerComponent = () => {
             <p>Echo & Alexa</p>
             <p>Fire TV</p>
             <p>Kindle E-Readers & eBook</p>
-            <p>Audible Audiobook</p>
+            {/* <p>Audible Audiobook</p>
             <p>Kalp Video</p>
-            <p>Kalp Music</p>
+            <p>Kalp Music</p> */}
             <br/>
-            <br/>
+          
             </DrawerBody>
         <DrawerHeader borderTopWidth='1px'>Shop By category</DrawerHeader>
         <DrawerBody>
@@ -66,7 +66,7 @@ const DrawerComponent = () => {
             <p>Flight Tickets</p>
             <p>#FoundltOneKalptaru</p>
             <p>Clearance Store</p>
-            <br/>
+           
           </DrawerBody>
         </DrawerContent>
       </Drawer>

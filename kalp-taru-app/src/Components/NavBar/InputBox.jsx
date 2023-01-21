@@ -7,31 +7,34 @@ const deals=['All Category','Alexa Skill','Device','Fashion','Pharmacy','Applian
 'Car & Mterbick','Clothing & Accessories','Collectibles','Computer & Accessories','Electronics','Furniture','Garden','Gift Cards'
 ]
 
+
+
 const InputBox = () => {
+  
   return (
     <div className={styles.inputParentDiv} >
         
         <Center className={styles.inputAllMenu}  >
         <Menu  >
             <MenuButton> Deals <TriangleDownIcon/></MenuButton>
-                <Portal  >
-                   
+                <Portal>            
                     <MenuList  >
-                        {deals.map((el,i)=><MenuItem key={i} >{el}</MenuItem>)}
-                        
-                    </MenuList>
-                    
-                    
+                        {deals.map((el,i)=><MenuItem key={i+1} >{el}</MenuItem>)}              
+                    </MenuList>             
                 </Portal>
         </Menu>
         </Center >
 
         <div className={styles.inputPerent} >
-              <input  className={styles.inputBoxStyle} placeholder='' />
+              <input  
+              className={styles.inputBoxStyle} 
+              />
         </div>
 
         <div className={styles.searchButtonParentDiv} >
-            <button className={styles.searchButton} ><SearchIcon/></button></div>
+            <button className={styles.searchButton}
+            
+            ><SearchIcon/></button></div>
 
       </div>
   )

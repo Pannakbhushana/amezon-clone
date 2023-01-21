@@ -3,17 +3,24 @@ import { Route,Routes } from 'react-router-dom'
 import BestSellers from '../Pages/BestSellers'
 import BestSellersSinglePage from '../Pages/BestSellersSinglePage'
 import Cart from '../Pages/Cart'
-import CoustomerService from '../Pages/CoustomerService'
+
 import Electronics from '../Pages/Electronics'
+import ElectronicsSinglePage from '../Pages/ElectronicsSinglePage'
 import Fashion from '../Pages/Fashion'
+import FashionSinglePage from '../Pages/FashionSinglePage'
 import Home from '../Pages/Home'
 import HomeAndKitchen from '../Pages/HomeAndKitchen'
-import Login from '../Pages/Login'
+import HomeAndKitchenSinglePage from '../Pages/HomeAndKitchenSinglePage'
+
 import Mobiles from '../Pages/Mobiles'
+import MobilesSinglePage from '../Pages/MobilesSinglePage'
 import PageNotFound from '../Pages/PageNotFound'
-import Pay from '../Pages/Pay'
-import Prime from '../Pages/Prime'
+
+import SignUp from '../Pages/SignUp'
 import TodaysDeals from '../Pages/TodaysDeals'
+import TodaysDealsSinglePage from '../Pages/TodaysDealsSinglePage'
+import UserLogin from '../Pages/UserLogin'
+import PrivateRoute from './PrivateRoute'
 
 
 const AllRoutes = () => {
@@ -21,18 +28,27 @@ const AllRoutes = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/bestsellers" element={<BestSellers/>} />
-        <Route path="/bestsellers/:id" element={<BestSellersSinglePage/>} />
-        <Route path="/mobiles" element={<Mobiles/>} />
-        <Route path="/todaysdeals" element={<TodaysDeals/>} />
-        <Route path="/coustomerservice" element={<CoustomerService/>} />
-        <Route path="/electronics" element={<Electronics/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/prime" element={<Prime/>} />
-        <Route path="/fashion" element={<Fashion/>} />
-        <Route path="/pay" element={<Pay/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/homeandkitchen" element={<HomeAndKitchen/>} />
+
+        <Route path="/bestsellers" element={<PrivateRoute><BestSellers/></PrivateRoute>} />
+        <Route path="/bestsellers/:id" element={<PrivateRoute><BestSellersSinglePage/></PrivateRoute>} />
+
+        <Route path="/mobiles" element={<PrivateRoute><Mobiles/></PrivateRoute>} />
+        <Route path="/mobiles/:id" element={<PrivateRoute><MobilesSinglePage/></PrivateRoute>} />
+
+        <Route path="/todaysdeals" element={<PrivateRoute><TodaysDeals/></PrivateRoute>} />
+        <Route path="/todaysdeals/:id" element={<PrivateRoute><TodaysDealsSinglePage/></PrivateRoute>} />
+
+        <Route path="/electronics" element={<PrivateRoute><Electronics/></PrivateRoute>} />
+        <Route path="/electronics/:id" element={<PrivateRoute><ElectronicsSinglePage/></PrivateRoute>} />
+
+        <Route path="/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />   
+        <Route path="/fashion" element={<PrivateRoute><Fashion/></PrivateRoute>} /> 
+        <Route path="/fashion/:id" element={<PrivateRoute><FashionSinglePage/></PrivateRoute>} /> 
+
+        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/userlogin" element={<UserLogin/>} />
+        <Route path="/homeandkitchen" element={<PrivateRoute><HomeAndKitchen/></PrivateRoute>} />
+        <Route path="/homeandkitchen/:id" element={<PrivateRoute><HomeAndKitchenSinglePage/></PrivateRoute>} />
         <Route path="*" element={<PageNotFound/>} />
       </Routes>
     </div>
