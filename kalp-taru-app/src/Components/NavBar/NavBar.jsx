@@ -76,7 +76,7 @@ const links=[
             <MenuButton>Menu</MenuButton>
                 <Portal>
                     <MenuList>
-                    {links.map((el)=><MenuItem key={el.to} ><Link  to={el.to} >{el.title}</Link></MenuItem>)}
+                    {links.map((el)=><Link key={el.to} to={el.to} > <MenuItem >{el.title}</MenuItem> </Link>)}
                     </MenuList>
                 </Portal>
           </Menu>
