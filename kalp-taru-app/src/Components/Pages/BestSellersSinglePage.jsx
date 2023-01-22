@@ -275,6 +275,7 @@ import {
       let arr= JSON.parse(localStorage.getItem("cart")) || [];
       arr.push(data);
       localStorage.setItem("cart",JSON.stringify(arr));
+      alert("Item added to cart")
     }
     
     return (

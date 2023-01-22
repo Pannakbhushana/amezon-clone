@@ -251,6 +251,7 @@ const BestSellers = () => {
     let cartData=JSON.parse(localStorage.getItem("cart"));
     cartData.push(el);
     localStorage.setItem("cart",JSON.stringify(cartData));
+    alert("Item added to cart")
   }
 
   // const getData=async()=>{

@@ -82,6 +82,7 @@ function Fashion() {
     const res=JSON.parse(localStorage.getItem("cart"));
     res.push(el);
     localStorage.setItem("cart",JSON.stringify(res));
+    alert("Item added to cart")
   }
 
   return <div>
