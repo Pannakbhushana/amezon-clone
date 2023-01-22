@@ -11,7 +11,7 @@ const Cart = () => {
   },[])
 
   const getDataFromLocalStorage=()=>{
-    const cartData=JSON.parse(localStorage.getItem("cart"));
+    const cartData=JSON.parse(localStorage.getItem("cart"))||[];
 
     setData(cartData);
   let temp=0;
@@ -32,7 +32,7 @@ const Cart = () => {
   }
  
 
-  return data.length===0 ? <div style={{height:"700px"}} ><h1>No Item Added</h1></div> : (
+  return data.length===0 ? <div style={{height:"700px"}} ><h1 style={{fontSize:"25px",fontWeight:"bold",marginTop:"5%"}} >No Item Added</h1></div> : (
     < >
 
    <div style={{fontSize:"20px",fontWeight:"bold"}} >
