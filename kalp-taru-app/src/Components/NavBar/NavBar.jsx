@@ -23,6 +23,8 @@ const links=[
   {to:"/electronics", title:"Electronics"},
   {to:"/fashion", title:"Fashion"},
   {to:"/homeandkitchen", title:"Home & Kitchen"},
+  {to:"/cart", title:"Cart"},
+  {to:"/userlogin", title:"Login SignUp"},
 ]
 
   
